@@ -125,47 +125,47 @@ vite-starterkit/
 ├── public/
 │   └── favicon.svg
 ├── scripts/
-│   ├── create-page.mjs           # page generator CLI
-│   └── delete-page.mjs           # page remover CLI
+│   ├── create-page.mjs           
+│   └── delete-page.mjs           
 ├── src/
 │   ├── assets/
 │   │   ├── css/
-│   │   │   ├── index.css             # imports all global styles
+│   │   │   ├── index.css             
 │   │   │   └── global/
-│   │   │       ├── variables.css     # CSS tokens (colors, spacing, fonts)
-│   │   │       ├── fonts.css         # @font-face declarations
-│   │   │       ├── global.css        # base styles
-│   │   │       └── scrollbar.css     # scrollbar styling
-│   │   ├── fonts/                    # .woff2 font files
-│   │   ├── icons/                    # .svg icon files
-│   │   ├── videos/                   # .mp4, .webm video files
-│   │   └── imgs/                     # .png, .jpg, .jpeg, .webp images
+│   │   │       ├── variables.css     
+│   │   │       ├── fonts.css         
+│   │   │       ├── global.css        
+│   │   │       └── scrollbar.css     
+│   │   ├── fonts/                    
+│   │   ├── icons/                    
+│   │   ├── videos/                   
+│   │   └── imgs/                     
 │   ├── components/
 │   │   ├── layout/
 │   │   │   ├── Header/
 │   │   │   │   └── Header.tsx
 │   │   │   └── Footer/
 │   │   │       └── Footer.tsx
-│   │   └── ui/                       # Button, Card, Input, etc.
-│   ├── hooks/                        # custom React hooks
+│   │   └── ui/                       
+│   ├── hooks/                        
 │   ├── pages/
 │   │   └── Home/
-│   │       ├── Home.tsx
-│   │       ├── Home.module.css
-│   │       └── components/           # sections exclusive to this page
-│   ├── service/                      # API calls and external services
-│   ├── types/                        # global TypeScript interfaces
-│   ├── utils/                        # pure helper functions
-│   ├── App.tsx                       # root layout with Outlet
-│   └── main.tsx                      # SSG entry point with routes
+│   │       └── Home.tsx
+│   ├── service/                      
+│   ├── types/                        
+│   ├── utils/                        
+│   ├── App.tsx                       
+│   └── main.tsx                      
 ├── .env.example
 ├── .gitignore
-├── index.html                        # Vite template with SEO fallback
-├── robots.txt
-├── tsconfig.json
-├── tsconfig.app.json
-├── tsconfig.node.json
 ├── eslint.config.js
+├── index.html                        
+├── package.json
+├── package-lock.json
+├── robots.txt
+├── tsconfig.app.json
+├── tsconfig.json
+├── tsconfig.node.json
 └── vite.config.ts
 ```
 
