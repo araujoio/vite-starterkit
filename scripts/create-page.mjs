@@ -106,7 +106,7 @@ if (!fs.existsSync(MAIN_FILE)) {
   const newRoute = [
     `      {`,
     `        path: '${routePath}',`,
-    `        lazy: () => import('./pages/${pageName}/${pageName}').then(m => ({ element: <m.default /> })),`,
+    `        lazy: () => import('@pages/${pageName}/${pageName}').then(m => ({ element: <m.default /> })),`,
     `      },`,
   ].join('\n')
 
