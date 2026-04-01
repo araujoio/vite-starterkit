@@ -96,45 +96,62 @@ log.success(`src/pages/${pageName}/${pageName}.tsx created`)
 // ── step 2: update main.tsx ────────────────────────────────────────────────
 
 if (!fs.existsSync(MAIN_FILE)) {
-  log.warn(`main.tsx not found — skipping route registration.`)
+  log.warn('main.tsx not found — skipping route registration.')
 } else {
-  // Normalise to LF so regex works on Windows (CRLF) and Linux/Mac (LF)
-  const raw  = fs.readFileSync(MAIN_FILE, 'utf8')
+  const raw    = fs.readFileSync(MAIN_FILE, 'utf8')
   const isCRLF = raw.includes('\r\n')
-  const main = raw.replace(/\r\n/g, '\n')
+  const main   = raw.replace(/\r\n/g, '\n')
 
   const newRoute = [
     `      {`,
     `        path: '${routePath}',`,
-    `        lazy: () => import('@pages/${pageName}/${pageName}').then(m => ({ element: <m.default /> })),`,
+    `        lazy: () => import('@pages/${pageName}/${pageName}.tsx').then(m => ({ element: <m.default /> })),`,
     `      },`,
   ].join('\n')
 
   if (main.includes(`path: '${routePath}'`)) {
     log.warn(`Route "/${routePath}" already exists in main.tsx — skipping.`)
   } else {
-    // Matches the last closing brace of a child route right before ], 
-    // Works regardless of trailing comma presence
-    const lastChildPattern = /([ \t]*\},?)([ \t]*\n[ \t]*\],)/
+    let updated
+    let inserted = false
 
-    if (!lastChildPattern.test(main)) {
-      log.warn('Could not find children array in main.tsx — add the route manually:')
-      log.dim(`{ path: '${routePath}', lazy: () => import('./pages/${pageName}/${pageName}').then(m => ({ element: <m.default /> })) }`)
-    } else {
-      let updated = main.replace(lastChildPattern, (_, lastChild, closing) => {
-        const fixed = lastChild.trimEnd().replace(/,?$/, ',')
-        return `${fixed}\n${newRoute}${closing}`
-      })
+    // Priority 1: anchor comment — most reliable, always above path: '*'
+    const anchorPattern = /([ \t]*\/\/ \[create:page\][^\n]*\n)/
+    if (anchorPattern.test(main)) {
+      updated  = main.replace(anchorPattern, anchor => `${anchor}${newRoute}\n`)
+      inserted = true
+    }
 
-      // Restore original line endings if file was CRLF
-      if (isCRLF) updated = updated.replace(/\n/g, '\r\n')
-
-      if (updated === raw) {
-        log.warn('Replacement produced no change — check main.tsx manually.')
-      } else {
-        fs.writeFileSync(MAIN_FILE, updated, 'utf8')
-        log.success(`Route "/${routePath}" added to main.tsx`)
+    // Priority 2: insert before path: '*' — safe even without anchor
+    if (!inserted) {
+      const beforeNotFoundPattern = /(\n)([ \t]*\{[^{}]*path:\s*['\"]\*['\"][^}]*\}[\s\S]*?\},)/
+      if (beforeNotFoundPattern.test(main)) {
+        updated  = main.replace(beforeNotFoundPattern, (_, nl, notFoundBlock) => {
+          return `${nl}${newRoute}${nl}${notFoundBlock}`
+        })
+        inserted = updated !== main
       }
+    }
+
+    // Priority 3: last resort — insert before children closing ],
+    if (!inserted) {
+      const lastChildPattern = /([ \t]*\},?)([ \t]*\n[ \t]*\],)/
+      if (lastChildPattern.test(main)) {
+        updated = main.replace(lastChildPattern, (_, lastChild, closing) => {
+          const fixed = lastChild.trimEnd().replace(/,?$/, ',')
+          return `${fixed}\n${newRoute}${closing}`
+        })
+        inserted = updated !== main
+      }
+    }
+
+    if (inserted && updated && updated !== raw) {
+      if (isCRLF) updated = updated.replace(/\n/g, '\r\n')
+      fs.writeFileSync(MAIN_FILE, updated, 'utf8')
+      log.success(`Route "/${routePath}" added to main.tsx`)
+    } else {
+      log.warn('Could not find insertion point in main.tsx — add the route manually:')
+      log.dim(`{ path: '${routePath}', lazy: () => import('@pages/${pageName}/${pageName}.tsx').then(m => ({ element: <m.default /> })) }`)
     }
   }
 }
