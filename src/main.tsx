@@ -12,6 +12,11 @@ const routes = [
         lazy: () => import('@pages/Home/Home.tsx')
           .then(m => ({ element: <m.default/> })),
       },
+      {
+        path: '*',
+        lazy: () => import('@pages/NotFound/NotFound.tsx')
+          .then(m => ({ element: <m.default/> })),
+      },
     ],
   },
 ]
