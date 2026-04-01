@@ -119,13 +119,15 @@ if (!fs.existsSync(CONFIG_FILE)) {
   if (!config.includes(`'/${routePath}'`)) {
     log.warn(`Route "/${routePath}" not found in sitemap — skipping.`)
   } else {
-    // Remove the line containing '/<routePath>',  (with optional trailing comma)
-    const sitemapLinePattern = new RegExp(
-      `[ \\t]*'\\/${routePath}',?\\n`,
-      'g'
-    )
-
+    // Step A: remove the route line
+    const sitemapLinePattern = new RegExp(`[ \\t]*'\\/${routePath}',?\\n`, 'g')
     let updated = config.replace(sitemapLinePattern, '')
+
+    // Step B: if only one item remains in dynamicRoutes, collapse to single line
+    // Turns:  dynamicRoutes: [\n          '/',\n        ]
+    // Into:   dynamicRoutes: ['/']
+    const collapsePattern = /(dynamicRoutes\s*:\s*\[)\s*'([^']+)'\s*,?\s*(\])/g
+    updated = updated.replace(collapsePattern, (_match, _open, item) => `dynamicRoutes: ['${item}']`)
 
     if (isCRLF) updated = updated.replace(/\n/g, '\r\n')
 
