@@ -1,13 +1,18 @@
 # Vite Starterkit
 
-![Vite](https://img.shields.io/badge/Vite-000000?style=for-the-badge&logo=vite&logoColor=646CFF)
-![React](https://img.shields.io/badge/React-000000?style=for-the-badge&logo=react&logoColor=61DAFB)
-![TypeScript](https://img.shields.io/badge/TypeScript-000000?style=for-the-badge&logo=typescript&logoColor=3178C6)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind-000000?style=for-the-badge&logo=tailwindcss&logoColor=06B6D4)
-![ESLint](https://img.shields.io/badge/ESLint-000000?style=for-the-badge&logo=eslint&logoColor=4B32C3)
-![MIT License](https://img.shields.io/badge/license-MIT-000000?style=for-the-badge&logo=open-source-initiative&logoColor=22C55E)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=000000)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
+![ESLint](https://img.shields.io/badge/ESLint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white)
+![MIT License](https://img.shields.io/badge/License-MIT-22C55E?style=for-the-badge&logo=open-source-initiative&logoColor=white)
 
-# The problem with starting a React project today
+Production-ready React starter built with Vite and TypeScript, featuring Static Site Generation (SSG), per-page SEO, automatic sitemap generation, and a scalable, well-structured architecture.
+
+## ⭐ Show Your Support
+If this project helped you, please follow us and give it a ⭐️ on [GitHub](https://github.com/araujoio/vite-starterkit). Your support makes a difference!
+
+## The problem with starting a React project today
 
 When you run `npm create vite@latest`, you get a blank canvas — no routing, no SEO, no structure, no sitemap. Every project ends up spending the first days solving the exact same boilerplate problems before writing a single line of real code.
 
@@ -15,27 +20,23 @@ There's a second, bigger problem: **Vite's default output is a CSR (Client-Side 
 
 This starterkit fixes both problems.
 
----
-
-# Why this starterkit?
+## Why this starterkit?
 
 This is the right way to start any React application. It ships production-ready from the first `npm install`:
 
-- **SSG (Static Site Generation)** — at build time, every route becomes a real, standalone HTML file. Crawlers and social bots read actual content — no JavaScript needed.
-- **Per-page SEO** — every page ships with its own `<title>`, `<meta>`, Open Graph and Twitter Card tags, injected directly into the static HTML.
-- **Automatic sitemap** — `sitemap.xml` is generated on every build, keeping search engines up to date without any manual work.
-- **Built-in page CLI** — create and delete pages with a single command. Routes, SEO, sitemap and folder structure are all handled automatically.
-- **CSS architecture** — global styles organized by responsibility (`variables`, `fonts`, `scrollbar`, `global`), with Tailwind for components and CSS Modules for complex cases.
-- **Scalable folder structure** — `pages/`, `components/`, `hooks/`, `service/`, `types/`, `utils/` — defined, documented and ready to populate.
+- ✅ **SSG (Static Site Generation)** — at build time, every route becomes a real, standalone HTML file. Crawlers and social bots read actual content — no JavaScript needed.
+- ✅ **Per-page SEO** — every page ships with its own `<title>`, `<meta>`, Open Graph and Twitter Card tags, injected directly into the static HTML.
+- ✅ **Automatic sitemap** — `sitemap.xml` is generated on every build, keeping search engines up to date without any manual work.
+- ✅ **Built-in page CLI** — Create pages with a single command. The CLI automatically generates routes, registers them in React Router, injects pre-configured SEO tags, adds entries to the sitemap, and creates a standardized folder structure with error handling built-in.
+- ✅ **CSS architecture** — global styles organized by responsibility (`variables`, `fonts`, `scrollbar`, `global`), with Tailwind for components and CSS Modules for complex cases.
+- ✅ **Scalable folder structure** — `pages/`, `components/`, `hooks/`, `service/`, `types/`, `utils/` — defined, documented and ready to populate.
 
----
-
-# Getting started
+## Getting started
 
 **1. Clone the repository**
 
 ```bash
-git clone https://github.com/lucas-araujoeng/vite-starterkit.git
+git clone https://github.com/araujoio/vite-starterkit.git
 cd vite-starterkit
 ```
 
@@ -62,63 +63,36 @@ VITE_THEME_COLOR_LIGHT=#ffffff
 VITE_THEME_COLOR_DARK=#0f0f0f
 ```
 
-**4. Start development server**
+## Page CLI
 
-```bash
-npm run dev
-```
-
-**5. Build for production**
-
-```bash
-npm run build
-```
-
----
-
-# Page CLI
-
-This starterkit ships with a built-in CLI for managing pages. No manual route registration, no sitemap editing, no folder creation — one command does everything.
+Stop editing routes manually. This starterkit ships with a CLI that automates React Router integration — create and delete pages without touching route files, sitemaps, or folders.
+One command. Everything wired.
 
 **Creating a page**
 
 ```bash
 npm run create:page <PageName>
 ```
+**Example**
 
 ```bash
 npm run create:page About
 ```
-
-```
-✔  src/pages/About/About.tsx created
-✔  Route "/about" added to main.tsx
-✔  Route "/about" added to sitemap in vite.config.ts
-```
-
-The generated page comes with a complete `<Head>` block — title, description, canonical URL, Open Graph and Twitter Card tags — all wired to your `.env` variables.
 
 **Deleting a page**
 
 ```bash
 npm run delete:page <PageName>
 ```
+**Example**
 
 ```bash
 npm run delete:page About
 ```
 
-```
-✔  src/pages/About/ deleted
-✔  Route "/about" removed from main.tsx
-✔  Route "/about" removed from sitemap in vite.config.ts
-```
-
 The CLI accepts any casing — `about`, `ABOUT`, `about-page` and `AboutPage` are all valid and will be normalized automatically.
 
----
-
-# Project structure
+## 📂 Project structure
 
 ```
 vite-starterkit/
@@ -171,9 +145,7 @@ vite-starterkit/
 └── vite.config.ts
 ```
 
----
-
-# Styling approach
+## Styling approach
 
 This starterkit uses **Tailwind CSS as the primary styling tool**, with **CSS Modules as an escape hatch** for cases Tailwind can't handle cleanly.
 
@@ -196,13 +168,3 @@ import styles from './Hero.module.css'
   <h1 className={`text-5xl font-bold ${styles.title}`}>Hello world</h1>
 </section>
 ```
-
----
-
-# Code of Conduct
-
-See the [CODE_OF_CONDUCT](./CODE_OF_CONDUCT).
-
-# License
-
-See the [LICENSE](./LICENSE).
