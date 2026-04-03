@@ -85,6 +85,18 @@ export default function ThemeToggle() {
     return () => document.removeEventListener("mousedown", handleClickOutside)
   }, [])
 
+  useEffect(() => {
+    const handleStorage = (e: StorageEvent) => {
+      if (e.key === "theme" && e.newValue) {
+        const newTheme = e.newValue as Theme
+        setTheme(newTheme)
+        applyTheme(newTheme)
+      }
+    }
+    window.addEventListener("storage", handleStorage)
+    return () => window.removeEventListener("storage", handleStorage)
+  }, [])
+
   const handleSelect = (value: Theme) => {
     setTheme(value)
     setOpen(false)
