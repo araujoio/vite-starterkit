@@ -6,10 +6,10 @@ export default function NotFound() {
       <Head>
         <title>404 - Page Not Found</title>
         <meta name="description" content="404 - Page Not Found" />
-        <link rel="canonical" href={`${import.meta.env.VITE_SITE_URL}/404`} />
+        <link rel="canonical" href={`${import.meta.env.SITE_URL}/404`} />
         <meta property="og:title" content="404 - Page Not Found" />
         <meta property="og:description" content="404 - Page Not Found" />
-        <meta property="og:url" content={`${import.meta.env.VITE_SITE_URL}/404`} />
+        <meta property="og:url" content={`${import.meta.env.SITE_URL}/404`} />
         <meta name="robots" content="noindex, nofollow" />
       </Head>
 

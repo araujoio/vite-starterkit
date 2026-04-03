@@ -73,10 +73,10 @@ export default function ${pageName}() {
       <Head>
         <title>${pageName} | My Site</title>
         <meta name="description" content="${pageName} page description." />
-        <link rel="canonical" href={\`\${import.meta.env.VITE_SITE_URL}/${routePath}\`} />
+        <link rel="canonical" href={\`\${import.meta.env.SITE_URL}/${routePath}\`} />
         <meta property="og:title" content="${pageName} | My Site" />
         <meta property="og:description" content="${pageName} page description." />
-        <meta property="og:url" content={\`\${import.meta.env.VITE_SITE_URL}/${routePath}\`} />
+        <meta property="og:url" content={\`\${import.meta.env.SITE_URL}/${routePath}\`} />
       </Head>
 
       <main>
