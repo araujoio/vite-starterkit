@@ -53,12 +53,18 @@ cp .env.example .env
 Open `.env` and fill in your values:
 
 ```bash
-VITE_APP_TITLE=My Site
-VITE_APP_DESCRIPTION=My site description
-VITE_SITE_URL=https://yourdomain.com
-VITE_TWITTER_HANDLE=@yourhandle
-VITE_THEME_COLOR_LIGHT=#ffffff
-VITE_THEME_COLOR_DARK=#0f0f0f
+# ─── App Info ───
+APP_TITLE="vite-starterkit"
+APP_DESCRIPTION="Your description here"
+SITE_URL="https://yourdomain.com"
+TWITTER_HANDLE="@yourhandle"
+
+# ─── PWA & Mobile Theme ───
+THEME_COLOR_LIGHT="#ffffff"
+THEME_COLOR_DARK="#090a0b"
+
+# ─── API ───
+API_URL="https://api.yourdomain.com"
 ```
 
 ## Page CLI
