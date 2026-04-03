@@ -1,13 +1,11 @@
 # Vite Starterkit
 
-![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
-![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=000000)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
-![ESLint](https://img.shields.io/badge/ESLint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white)
-![MIT License](https://img.shields.io/badge/License-MIT-22C55E?style=for-the-badge&logo=open-source-initiative&logoColor=white)
-
-Production-ready React starter built with Vite and TypeScript, featuring Static Site Generation (SSG), per-page SEO, automatic sitemap generation, and a scalable, well-structured architecture.
+![Vite](https://img.shields.io/badge/Vite-C4B5FD?style=for-the-badge&logo=vite&logoColor=1E1B4B)
+![React](https://img.shields.io/badge/React-BAE6FD?style=for-the-badge&logo=react&logoColor=0C4A6E)
+![TypeScript](https://img.shields.io/badge/TypeScript-BFDBFE?style=for-the-badge&logo=typescript&logoColor=1E3A8A)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-CFFAFE?style=for-the-badge&logo=tailwindcss&logoColor=155E75)
+![ESLint](https://img.shields.io/badge/ESLint-DDD6FE?style=for-the-badge&logo=eslint&logoColor=4C1D95)
+![License](https://img.shields.io/badge/License-BBF7D0?style=for-the-badge&logo=open-source-initiative&logoColor=14532D)
 
 ## ⭐ Show Your Support
 If this project helped you, please follow us and give it a ⭐️ on [GitHub](https://github.com/araujoio/vite-starterkit). Your support makes a difference!
