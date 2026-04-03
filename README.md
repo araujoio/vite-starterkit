@@ -112,7 +112,6 @@ vite-starterkit/
 │   │   │   └── global/
 │   │   │       ├── variables.css     
 │   │   │       ├── fonts.css         
-│   │   │       ├── global.css        
 │   │   │       └── scrollbar.css     
 │   │   ├── fonts/                    
 │   │   ├── icons/                    
@@ -124,7 +123,10 @@ vite-starterkit/
 │   │   │   │   └── Header.tsx
 │   │   │   └── Footer/
 │   │   │       └── Footer.tsx
-│   │   └── ui/                       
+│   │   └── ui/
+│   │       └── ThemeToggle/
+│   │           ├── ThemeToggle.tsx
+│   │           └── ThemeToggle.module.css
 │   ├── hooks/                        
 │   ├── pages/
 │   │   ├── Home/
