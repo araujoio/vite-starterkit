@@ -14,7 +14,7 @@ export default function NotFound() {
       </Head>
 
       <main>
-        <h1>404 - Page Not Found</h1>
+        <h1 className="font-bold text-2xl">404 - Page Not Found</h1>
       </main>
     </>
   )

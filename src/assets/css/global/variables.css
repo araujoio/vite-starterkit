@@ -1,0 +1,41 @@
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 210 11.1% 3.53%;
+  --font-sans: "Inter", system-ui, sans-serif;
+
+  /* ThemeToggle */
+  --toggle-bg:              transparent;
+  --toggle-bg-hover:        hsl(210 11% 3.53% / 0.08);
+  --toggle-border:          hsl(210 11% 3.53% / 0.12);
+  --toggle-icon-opacity:    0.6;
+
+  --dropdown-bg:            hsl(0 0% 98%);
+  --dropdown-border:        hsl(210 11% 3.53% / 0.1);
+  --dropdown-shadow:        0 8px 24px hsl(210 11% 3.53% / 0.12);
+
+  --option-color:           hsla(0, 0%, 0%, 0.986);
+  --option-color-hover:     hsl(210 11% 3.53% / 0.95);
+  --option-bg-hover:        hsl(210 11% 3.53% / 0.05);
+
+  --option-active-bg:       rgba(245, 62, 6, 0.918);
+  --option-active-color:    #fff;
+}
+
+.dark {
+  --background: 210 11.1% 3.53%;
+  --foreground: 0 0% 100%;
+
+  /* ThemeToggle dark */
+  --toggle-bg-hover:        hsl(0 0% 100% / 0.08);
+  --toggle-border:          hsl(0 0% 100% / 0.1);
+  --toggle-icon-opacity:    0.7;
+
+  --dropdown-bg:            hsl(240 12% 10%);
+  --dropdown-border:        hsl(0 0% 100% / 0.1);
+  --dropdown-shadow:        0 8px 24px hsl(0 0% 0% / 0.4);
+
+  --option-color:           hsla(0, 0%, 97%, 0.932);
+  --option-color-hover:     hsl(0 0% 100% / 0.95);
+  --option-bg-hover:        hsl(0 0% 100% / 0.06);
+}

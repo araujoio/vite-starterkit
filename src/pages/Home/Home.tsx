@@ -13,7 +13,7 @@ export default function Home() {
       </Head>
 
       <main>
-        <h1>Home</h1>
+        <h1 className="font-bold text-2xl">Home</h1>
       </main>
     </>
   )

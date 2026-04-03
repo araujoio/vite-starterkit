@@ -80,7 +80,7 @@ export default function ${pageName}() {
       </Head>
 
       <main>
-        <h1>${pageName}</h1>
+        <h1 className="font-bold text-2xl">${pageName}</h1>
       </main>
     </>
   )

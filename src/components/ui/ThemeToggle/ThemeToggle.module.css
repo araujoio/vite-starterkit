@@ -1,0 +1,97 @@
+.wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid var(--toggle-border);
+  background: var(--toggle-bg);
+  color: inherit;
+  cursor: pointer;
+  transition: background 0.10s ease;
+}
+
+.trigger:hover {
+  background: var(--toggle-bg-hover);
+}
+
+.trigger svg {
+  width: 16px;
+  height: 16px;
+  opacity: var(--toggle-icon-opacity);
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 148px;
+  border-radius: 6px;
+  border: 1px solid var(--dropdown-border);
+  background: var(--dropdown-bg);
+  backdrop-filter: blur(16px);
+  box-shadow: var(--dropdown-shadow);
+  overflow: hidden;
+  transform-origin: top right;
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0s linear 0.15s;
+}
+
+.dropdown[data-open="true"] {
+  opacity: 1;
+  transform: scale(1);
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0s linear 0s;
+}
+
+.dropdown[data-open="false"] {
+  opacity: 0;
+  transform: scale(0.95);
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0s linear 0.15s;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 9px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--option-color);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background 0.12s ease, color 0.12s ease;
+  text-align: left;
+}
+
+.option:hover {
+  background: var(--option-bg-hover);
+  color: var(--option-color-hover);
+}
+
+.option svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+.optionActive {
+  background: var(--option-active-bg);
+  color: var(--option-active-color);
+}
+
+.optionActive:hover {
+  background: var(--option-active-bg);
+  color: var(--option-active-color);
+}

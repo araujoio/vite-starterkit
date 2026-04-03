@@ -7,7 +7,7 @@ export default function App() {
   return (
     <HelmetProvider>
       <Header/>
-      <main>
+      <main className='flex items-center justify-center'>
         <Outlet/>
       </main>
       <Footer/>
